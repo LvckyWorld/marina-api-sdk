@@ -69,8 +69,9 @@ deploy documentation:
     - find . -mindepth 1 ! -name 'documentation' -type d -exec rm -rf {} +
     # move everything from "documentation" folder to the root and folders
     - mv documentation/* .
+    - ls -la ${FOLDER_TO_SYNC}
     # remove "documentation" folder
-    - rm -rf documentation
+    - rm -r documentation
     - ls -la ${FOLDER_TO_SYNC}
   script:
     # deploy using rsync jobs script
