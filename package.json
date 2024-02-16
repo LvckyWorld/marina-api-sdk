@@ -1,11 +1,13 @@
 {
   "name": "@lvckyworld/marina-api",
   "version": "1.0.0",
-  "main": "src/MarinaAPI.ts",
+  "main": "lib/MarinaAPI.js",
+  "types": "types/MarinaAPI.d.ts",
   "author": "LvckyAPI | Iven Schlenther",
   "license": "ISC",
-  "description": "",
+  "description": "The official LvckyWorld-API as NPM PACKAGE <br /> <br />\r [![Docs](https://img.shields.io/badge/-DOCUMENTATIONS-007396.svg?logo=Read%20the%20Docs&logoColor=white&longCache=true&style=for-the-badge)](https:///docs.lvckyworld.net/lvckyworld-api/) [![Website](https://img.shields.io/badge/-WEBSITE-FF7139.svg?logo=Firefox%20Browser&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/)  [![Discord](https://img.shields.io/badge/-DISCORD-5865F2.svg?logo=Discord&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/discord/)",
   "scripts": {
+    "compodoc": "npx compodoc -p tsconfig.doc.json",
     "build": "npm install && npx tsc",
     "ci-unpublish": "npm unpublish --force",
     "ci-publish": "npm publish --access public"
@@ -13,5 +15,11 @@
   "dependencies": {
     "axios": "^1.6.7"
   },
-  "devDependencies": {}
+  "repository": {
+    "type": "git",
+    "url": "https://git.lvckyworld.dev/lvckyworld/marina-api-sdk.git"
+  },
+  "devDependencies": {
+    "@compodoc/compodoc": "^1.1.23"
+  }
 }

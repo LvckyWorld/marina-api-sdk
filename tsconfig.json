@@ -18,10 +18,4 @@
   "exclude": [
     "node_modules"
   ],
-  "typedocOptions": {
-    "entryPoints": [
-      "src/MarinaAPI.ts"
-    ],
-    "out": "docs"
-  }
 }

@@ -1,21 +1,41 @@
 image: node:16
 
 stages:
-  - test
+  - build
   - publish
+  - deploy
+
+include:
+  - project: 'lvckyworld-docker/gitlab-ci-rezept'
+    file:
+      - '/deployment/.rsync.yml'
+      - '/package_manager/.composer.yml'
 
 cache:
   paths:
     - node_modules/
 
-test:
-  artifacts:
-    expire_in: 1 week
+npm install:
+  stage: build
+  extends: .npm-install
+  tags:
+    - zeta
   script:
-    - npm ci
+    - ls -la
+    - npm run build
+    - npm run compodoc
+  only:
+    - merge_requests
+    - /^(deploy-[a-z]{3,}-)\d{8}.\d{4}$/
+  cache:
+    paths:
+      - ./documentation
 
-publish:
+publish to npm:
   stage: publish
+  extends: npm install
+  tags:
+    - zeta
   artifacts:
     expire_in: 1 week
   only:
@@ -25,7 +45,55 @@ publish:
     - npm whoami
     - npm run ci-unpublish
     - ls -la
-    - npm run build
-    - ls -la
     - npm whoami
     - npm run ci-publish
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
+    paths:
+      - ./node_modules/
+    policy: pull
+
+deploy documentation:
+  stage: deploy
+  extends: .deploy-rsync
+  tags:
+    - zeta
+  environment:
+    name: 'production'
+    url: https://docs.lvckyworld.net/marina-api-sdk
+  variables:
+    SERVER: 'gamma.lvckyworld.dev'
+    SERVER_PORT: 22
+    SERVER_USERNAME: 'root'
+    SERVER_PATH: '/var/www/vhosts/lvckyworld.net/docs.lvckyworld.net/marina-api-sdk'
+    RSYNC_OPTIONS: '--delete'
+  before_script:
+    - ls -la ${FOLDER_TO_SYNC}
+    # delete everything but not "documentation" folder
+    - find . ! -name 'documentation' -type d -exec rm -rf {} +
+    # move everything from "documentation" folder to the root and folders
+    - mv documentation/* .
+    # remove "documentation" folder
+    - rm -rf documentation
+  script:
+    # deploy using rsync jobs script
+    - !reference [ .deploy-rsync, script ]
+    - |
+      runssh() {
+        echo "$@" | ssh -p $SERVER_PORT $SERVER_USERNAME@$SERVER "(cd $SERVER_PATH || true && export CURRENTDIR=${CURRENTDIR} && 
+        export SERVER_PATH=${SERVER_PATH} && export CI_COMMIT_SHORT_SHA=${CI_COMMIT_SHORT_SHA} && bash -s)"
+      }
+
+    # list the files on the server
+    - echo "FILES FROM SERVER"
+    - runssh ls -la
+
+    # correct ownership
+    - runssh plesk repair fs -y -v
+  cache:
+    key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
+    paths:
+      - ./documentation
+    policy: pull
+  only:
+    - /^(deploy-prod-)\d{8}.\d{4}$/
