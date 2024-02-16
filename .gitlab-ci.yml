@@ -1,0 +1,31 @@
+image: node:16
+
+stages:
+  - test
+  - publish
+
+cache:
+  paths:
+    - node_modules/
+
+test:
+  artifacts:
+    expire_in: 1 week
+  script:
+    - npm ci
+
+publish:
+  stage: publish
+  artifacts:
+    expire_in: 1 week
+  only:
+    - /^(deploy-prod-)\d{8}.\d{4}$/
+  script:
+    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
+    - npm whoami
+    - npm run ci-unpublish
+    - ls -la
+    - npm run build
+    - ls -la
+    - npm whoami
+    - npm run ci-publish

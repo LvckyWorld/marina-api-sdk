@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "module": "commonjs",
+    "declaration": true,
+    "declarationDir": "./types",
+    "outDir": "./lib",
+    "strict": true,
+    "resolveJsonModule": true,
+    "lib": [
+      "ES2021",
+      "ES2022",
+    ]
+  },
+  "include": [
+    "src/*/"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "typedocOptions": {
+    "entryPoints": [
+      "src/MarinaAPI.ts"
+    ],
+    "out": "docs"
+  }
+}
