@@ -41,6 +41,7 @@ publish to npm:
   only:
     - /^(deploy-prod-)\d{8}.\d{4}$/
   script:
+    - rm -r tools
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm whoami
     - ls -la
