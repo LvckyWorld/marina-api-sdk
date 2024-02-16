@@ -26,8 +26,7 @@ const {MarinaAPI} = require("@lvckyworld/marina-api");
 ## Usage Example
 
 ```ts
-import {MarinaAPI} from "@lvckyworld/marina-api"
-
+import {MarinaAPI} from "@lvckyworld/marina-api"; // added
 import {Message} from "discord.js";
 import {LeaveSeverPCommand} from "./module/LeaveSeverPCommand";
 
@@ -40,8 +39,7 @@ export class MessageListener {
         const args = message.content.slice(prefix.length).split(" ").slice(1);
 
         if (command === "leave") {
-            if (!await MarinaAPI.isLvckyWorldAdmin(message.author.id)) return;
-            
+            if (!await MarinaAPI.isLvckyWorldAdmin(message.author.id)) return; // added
             new LeaveSeverPCommand().execute(message, args);
         }
     }
