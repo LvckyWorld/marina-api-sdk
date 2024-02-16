@@ -42,6 +42,7 @@ publish to npm:
     - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
     - npm whoami
     - ls -la
+    - chmod +x ./npm-publish.sh
     - npm run ci-publish
   cache:
     key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
