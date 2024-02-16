@@ -2,7 +2,7 @@
   "name": "@lvckyworld/marina-api",
   "version": "1.0.3",
   "main": "lib/MarinaAPI.js",
-  "types": "types/MarinaAPI.d.ts",
+  "types": "lib/MarinaAPI.d.ts",
   "author": "LvckyAPI | Iven Schlenther",
   "license": "ISC",
   "description": "Marina API SDK for Node.js",

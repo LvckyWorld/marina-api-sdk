@@ -9,10 +9,6 @@ include:
       - '/deployment/.rsync.yml'
       - '/package_manager/.npm.yml'
 
-cache:
-  paths:
-    - node_modules/
-
 npm install:
   stage: build
   extends: .npm-install
