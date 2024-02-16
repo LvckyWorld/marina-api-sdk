@@ -26,17 +26,25 @@ const {MarinaAPI} = require("@lvckyworld/marina-api");
 ## Usage Example
 
 ```ts
-    public static async  onMessage(message: Message) {
-    const prefix = ".";
-    if (message.author.bot) return;
-    if (!message.content.startsWith(prefix)) return;
-    const command = message.content.toLowerCase().slice(prefix.length).split(" ")[0];
-    const args = message.content.slice(prefix.length).split(" ").slice(1);
+import {MarinaAPI} from "@lvckyworld/marina-api"
 
-    if (command === "leave") {
-        if (!await MarinaAPI.isLvckyWorldAdmin(message.author.id)) return; // USED HERE
-        
-        new LeaveSeverPCommand().execute(message, args);
+import {Message} from "discord.js";
+import {LeaveSeverPCommand} from "./module/LeaveSeverPCommand";
+
+export class MessageListener {
+    public static async onMessage(message: Message) {
+        const prefix = ".";
+        if (message.author.bot) return;
+        if (!message.content.startsWith(prefix)) return;
+        const command = message.content.toLowerCase().slice(prefix.length).split(" ")[0];
+        const args = message.content.slice(prefix.length).split(" ").slice(1);
+
+        if (command === "leave") {
+            if (!await MarinaAPI.isLvckyWorldAdmin(message.author.id)) return;
+            
+            new LeaveSeverPCommand().execute(message, args);
+        }
     }
 }
+
 ```
