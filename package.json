@@ -9,8 +9,7 @@
   "scripts": {
     "compodoc": "npx compodoc -p tsconfig.doc.json",
     "build": "npm install && npx tsc",
-    "ci-unpublish": "npm unpublish --force",
-    "ci-publish": "npm publish --access public"
+    "ci-publish": "./npm-publish.sh"
   },
   "dependencies": {
     "axios": "^1.6.7"
