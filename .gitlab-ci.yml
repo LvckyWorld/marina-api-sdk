@@ -27,7 +27,9 @@ npm install:
     - /^(deploy-[a-z]{3,}-)\d{8}.\d{4}$/
   cache:
     paths:
-      - ./documentation
+      - ./documentation/
+      - ./lib/
+      - ./types/
 
 publish to npm:
   stage: publish
@@ -48,6 +50,8 @@ publish to npm:
     key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
     paths:
       - ./node_modules/
+      - ./lib/
+      - ./types/
 
 deploy documentation:
   stage: deploy
