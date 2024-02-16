@@ -1,5 +1,3 @@
-image: node:16
-
 stages:
   - build
   - publish
@@ -9,7 +7,7 @@ include:
   - project: 'lvckyworld-docker/gitlab-ci-rezept'
     file:
       - '/deployment/.rsync.yml'
-      - '/package_manager/.composer.yml'
+      - '/package_manager/.npm.yml'
 
 cache:
   paths:
