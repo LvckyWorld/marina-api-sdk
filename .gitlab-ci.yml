@@ -43,7 +43,7 @@ publish to npm:
     - npm whoami
     - ls -la
     - chmod +x ./npm-publish.sh
-    - npm run ci-publish
+    - ./npm-publish.sh
   cache:
     key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
     paths:
