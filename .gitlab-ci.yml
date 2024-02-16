@@ -63,7 +63,7 @@ deploy documentation:
     SERVER_USERNAME: 'root'
     SERVER_PATH: '/var/www/vhosts/lvckyworld.net/docs.lvckyworld.net/marina-api-sdk'
     RSYNC_OPTIONS: '--delete'
-    FOLDER_TO_SYNC: './documentation/*'
+    FOLDER_TO_SYNC: './documentation/'
   before_script:
     - ls -la ${FOLDER_TO_SYNC}
   script:
