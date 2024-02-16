@@ -1,6 +1,7 @@
 import * as axios from "axios";
 import {MainConfig} from "../config/MainConfig";
 import {DiscordMember, LvckyWorldGlobalBans, LvckyWorldMember, LvckyWorldTeam} from "../contract/ApiData";
+import {Snowflake} from "discord-api-types/globals";
 
 /**
  * Represents a class for making requests to the LvckyWorld API.
@@ -64,7 +65,7 @@ export class Request {
      * @return {Promise<DiscordMember>} - A promise that resolves with the retrieved DiscordMember object.
      * @throws {Error} - If an error occurs during the retrieval process.
      */
-    protected static async getUserInfo(memberId: string): Promise<DiscordMember> {
+    protected static async getUserInfo(memberId: Snowflake): Promise<DiscordMember> {
         return new Promise(async (resolve, reject) => {
             try {
                 const response = await axios.default.get(MainConfig.API_URL + '/getuserinfo/' + memberId);
