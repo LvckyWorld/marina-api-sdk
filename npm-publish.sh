@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # Get the current version from package.json
 current_version=$(node -p "require('./package.json').version")
