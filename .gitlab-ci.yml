@@ -79,6 +79,10 @@ deploy documentation:
     - echo "FILES FROM SERVER"
     - runssh ls -la
 
+    # move to the correct directory
+    - mv documentation/* .
+    - rm -rf documentation
+
     # correct ownership
     - runssh plesk repair fs -y -v
   cache:
