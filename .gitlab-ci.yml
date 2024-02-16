@@ -68,7 +68,7 @@ deploy documentation:
   before_script:
     - ls -la ${FOLDER_TO_SYNC}
     # delete everything but not "documentation" folder
-    - find . ! -name 'documentation' -type d -exec rm -rf {} +
+    - find . -mindepth 1 ! -name 'documentation' -type d -exec rm -rf {} +
     # move everything from "documentation" folder to the root and folders
     - mv documentation/* .
     # remove "documentation" folder
