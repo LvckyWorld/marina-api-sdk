@@ -1,6 +1,6 @@
 {
   "name": "@lvckyworld/marina-api",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "main": "lib/MarinaAPI.js",
   "types": "lib/MarinaAPI.d.ts",
   "author": "LvckyAPI | Iven Schlenther",
@@ -16,7 +16,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.lvckyworld.dev/lvckyworld/marina-api-sdk.git"
+    "url": "https://github.com/LvckyWorld/marina-api-sdk"
   },
   "devDependencies": {
     "@compodoc/compodoc": "^1.1.23"

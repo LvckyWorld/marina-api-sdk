@@ -1,13 +1,12 @@
-# Marina API SDK [![Latest Release](https://badge.fury.io/js/@lvckyworld%2Fmarina-api.svg)](https://www.npmjs.com/package/@lvckyworld/marina-api)
-
-![Banner](https://i.lvckyworld.net/lvcky/marina-api/banner.png)
-
 <div align="center">
 
-[![Docs](https://img.shields.io/badge/-DOCUMENTATION-007396.svg?logo=Read%20the%20Docs&logoColor=white&longCache=true&style=for-the-badge)](https:///docs.lvckyworld.net/marina-api-sdk/) [![Website](https://img.shields.io/badge/-WEBSITE-4285F4.svg?logo=googlechrome&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/)  [![Discord](https://img.shields.io/badge/-DISCORD-5865F2.svg?logo=Discord&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/discord/)
-</div>
+# Marina API SDK
 
-The official Marina-API as NPM PACKAGE
+[![Latest Release](https://badge.fury.io/js/@lvckyworld%2Fmarina-api.svg)](https://www.npmjs.com/package/@lvckyworld/marina-api)  
+![Banner](https://i.lvckyworld.net/lvcky/marina-api/banner.png)  
+[![Docs](https://img.shields.io/badge/-DOCUMENTATION-007396.svg?logo=Read%20the%20Docs&logoColor=white&longCache=true&style=for-the-badge)](https:///docs.lvckyworld.net/marina-api-sdk/) [![Website](https://img.shields.io/badge/-WEBSITE-4285F4.svg?logo=googlechrome&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/)  [![Discord](https://img.shields.io/badge/-DISCORD-5865F2.svg?logo=Discord&logoColor=white&longCache=true&style=for-the-badge)](https://lvckyworld.net/discord/)  
+**The official MarinaAPI as NPM-Package**
+</div>
 
 ## Install the Package
 
