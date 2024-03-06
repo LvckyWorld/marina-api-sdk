@@ -12,8 +12,6 @@ include:
 npm install:
   stage: build
   extends: .npm-install
-  tags:
-    - zeta
   script:
     - ls -la
     - npm run build
@@ -30,8 +28,6 @@ npm install:
 publish to npm:
   stage: publish
   extends: npm install
-  tags:
-    - zeta
   artifacts:
     expire_in: 1 week
   only:
@@ -53,8 +49,6 @@ publish to npm:
 deploy documentation:
   stage: deploy
   extends: .deploy-rsync
-  tags:
-    - zeta
   environment:
     name: 'production'
     url: https://docs.lvckyworld.net/marina-api-sdk
