@@ -23,7 +23,6 @@ npm install:
     paths:
       - ./documentation/
       - ./lib/
-      - ./types/
 
 publish to npm:
   stage: publish
@@ -42,9 +41,8 @@ publish to npm:
   cache:
     key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
     paths:
-      - ./node_modules/
       - ./lib/
-      - ./types/
+    policy: pull
 
 deploy documentation:
   stage: deploy
