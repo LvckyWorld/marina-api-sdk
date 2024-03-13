@@ -1,44 +1,24 @@
 /**
- * Represents a list of LvckyWorld Admins.
- * @interface
- */
-export interface LvckyWorldMember {
-    lvckyworld: [
-        {
-            name: string,
-            clid: string,
-            role: string,
-            roleId: string,
-            highestRoleId: string,
-            sortId: number
-        }
-    ]
-}
-
-/**
  * Represents a list of LvckyWorld team members.
  * @interface
  */
-export interface LvckyWorldTeam {
-    "teamMembers": [
-        {
-            clientname: string,
-            clientid: string,
-            roleName: string,
-            roleId: string,
-            highestRoleId: number,
-            sortId: number
-        }
-    ]
+export interface TeamMember {
+    member_name: string,
+    member_id: string,
+    highest_role_id: string,
+    highest_role_name: string,
+    highest_role_position: number,
+    sort_id: number,
+    is_admin: boolean,
 }
 
 /**
  * Represents a collection of LvckyWorld GlobalBans.
  * @interface
  */
-export interface LvckyWorldGlobalBans {
+export interface GlobalBans {
     globalbans: [
-        LvckyWorldGlobalBan
+        GlobalBan
     ]
 }
 
@@ -46,7 +26,24 @@ export interface LvckyWorldGlobalBans {
  * Represents a LvckyWorld GlobalBan.
  * @interface
  */
-export interface LvckyWorldGlobalBan {
+export interface GlobalBan {
+    member_id: string,
+    member_avatar: string,
+    member_name: string,
+    ban_reason: string,
+    ban_creator_id: string,
+    ban_creator_name: string,
+    banned_on_guild_name: string,
+    banned_on_guild_id: string,
+    timestamp: string,
+    special_permit: boolean
+}
+
+/**
+ * Represents the schema for an old global ban.
+ * @interface OldGlobalBanSchema
+ */
+export interface OldGlobalBanSchema {
     clientid: string,
     clientavatar: string,
     clientname: string,
@@ -54,21 +51,25 @@ export interface LvckyWorldGlobalBan {
     bancreatorid: string,
     bancreatorname: string,
     bannedOn: string,
-    timestam: string,
+    timestamp: string,
     permis: boolean
 }
+
 
 /**
  * Represents a member in Discord.
  * @interface
  */
-export interface DiscordMember {
+export interface DiscordUserData {
     id: string,
     username: string,
     avatar: string | null,
-    avatar_decoration: string | null,
     discriminator: string,
     public_flags: number | null,
+    premium_type: number | null,
+    flags: number | null,
+    global_name: string | null,
+    avatar_decoration_data: string | null,
     banner: string | null,
     banner_color: string | null,
     accent_color: string | null
