@@ -1,6 +1,6 @@
 {
   "name": "@lvckyworld/marina-api",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "main": "lib/MarinaAPI.js",
   "types": "lib/MarinaAPI.d.ts",
   "author": "LvckyAPI | Iven Schlenther",
