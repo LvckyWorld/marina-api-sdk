@@ -9,7 +9,7 @@ import {MainConfig} from "./config/MainConfig";
  */
 export class MarinaAPI extends Request {
 
-    constructor(apiToken: string, apiURL: string = MainConfig.API_URL) {
+    constructor(apiToken: string = 'NOT SET', apiURL: string = MainConfig.API_URL) {
         super(apiToken, apiURL);
     }
 
