@@ -7,11 +7,10 @@ include:
   - project: 'lvckyworld-docker/gitlab-ci-rezept'
     file:
       - '/deployment/.rsync.yml'
-      - '/package_manager/.npm.yml'
+  - component: git.lvckyworld.dev/pipeline-components/node-package-manager/publish-npm-package@~latest
 
 npm install:
-  stage: build
-  extends: .npm-install
+  extends: .npm install
   script:
     - ls -la
     - npm run build
@@ -23,26 +22,6 @@ npm install:
     paths:
       - ./documentation/
       - ./lib/
-
-publish to npm:
-  stage: publish
-  extends: npm install
-  artifacts:
-    expire_in: 1 week
-  only:
-    - /^(deploy-prod-)\d{8}.\d{4}$/
-  script:
-    - rm -r tools
-    - echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
-    - npm whoami
-    - ls -la
-    - chmod +x ./npm-publish.sh
-    - ./npm-publish.sh
-  cache:
-    key: ${CI_COMMIT_REF_SLUG}-${CI_PROJECT_ID}
-    paths:
-      - ./lib/
-    policy: pull
 
 deploy documentation:
   stage: deploy
