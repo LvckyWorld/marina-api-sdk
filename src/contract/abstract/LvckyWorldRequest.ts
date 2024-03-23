@@ -14,7 +14,9 @@ export class LvckyWorldRequest {
         baseUrl: string,
         apiEndpoint: string,
     ): Promise<SuccessResponseBody | ErrorResponseBody> {
-        return axios.get((baseUrl) + apiEndpoint);
+        return axios.get((baseUrl) + apiEndpoint).then((response) => {
+            return response.data;
+        });
     }
 
     /**
@@ -31,7 +33,9 @@ export class LvckyWorldRequest {
         apiToken: string,
         params: any | null = null,
     ): Promise<SuccessResponseBody | ErrorResponseBody> {
-        return axios.post((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}});
+        return axios.post((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}}).then((response) => {
+            return response.data;
+        });
     }
 
     /**
@@ -49,7 +53,9 @@ export class LvckyWorldRequest {
         apiToken: string,
         params: any | null = null,
     ): Promise<SuccessResponseBody | ErrorResponseBody> {
-        return axios.put((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}});
+        return axios.put((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}}).then((response) => {
+            return response.data;
+        });
     }
 
     /**
@@ -68,7 +74,9 @@ export class LvckyWorldRequest {
         apiToken: string,
         params: any | null = null,
     ): Promise<SuccessResponseBody | ErrorResponseBody> {
-        return axios.delete((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}});
+        return axios.delete((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}}).then((response) => {
+            return response.data;
+        });
     }
 
 }
