@@ -41,7 +41,8 @@ export class LWGetRequest extends LvckyWorldRequest {
     public getGlobalBan(memberId: Snowflake): Promise<GlobalBan> {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.default.get(this.apiUrl + '/globalbans/' + memberId);
+                const response = await this.sendGetRequest(this.apiUrl ,'/globalbans/' + memberId);
+                if (!response.success) return reject(response.error);
                 return resolve(response.data as GlobalBan);
             } catch (error) {
                 return reject(error);
@@ -57,7 +58,9 @@ export class LWGetRequest extends LvckyWorldRequest {
     public async getLvckyWorldMembers(): Promise<TeamMember[]> {
         return new Promise(async (resolve, reject) => {
             try {
-                const response = await axios.default.get(this.apiUrl + '/team-members');
+                console.log("getLWMembers")
+                const response = await this.sendGetRequest(this.apiUrl, '/team-members');
+                if (!response.success) return reject(response.error);
                 return resolve(response.data as TeamMember[]);
             } catch (error) {
                 return reject(error);
