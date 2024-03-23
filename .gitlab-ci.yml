@@ -24,9 +24,14 @@ npm install:
       - ./documentation/
       - ./lib/
 
+publish to npm:
+  extends: .publish to npm
+
 deploy documentation:
   stage: deploy
   extends: .deploy-rsync
+  needs:
+    - publish to npm
   environment:
     name: 'production'
     url: https://docs.lvckyworld.net/marina-api-sdk
