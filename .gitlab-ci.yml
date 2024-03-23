@@ -26,6 +26,8 @@ npm install:
 
 publish to npm:
   extends: .publish to npm
+  only:
+    - /^(deploy-prod-)\d{8}.\d{4}$/
 
 deploy documentation:
   stage: deploy
