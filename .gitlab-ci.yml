@@ -7,6 +7,7 @@ include:
   - project: 'lvckyworld-docker/gitlab-ci-rezept'
     file:
       - '/deployment/.rsync.yml'
+  - component: git.lvckyworld.dev/pipeline-components/node-package-manager/npm-install@~latest
   - component: git.lvckyworld.dev/pipeline-components/node-package-manager/publish-npm-package@~latest
 
 npm install:
