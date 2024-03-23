@@ -58,7 +58,6 @@ export class LWGetRequest extends LvckyWorldRequest {
     public async getLvckyWorldMembers(): Promise<TeamMember[]> {
         return new Promise(async (resolve, reject) => {
             try {
-                console.log("getLWMembers")
                 const response = await this.sendGetRequest(this.apiUrl, '/team-members');
                 if (!response.success) return reject(response.error);
                 return resolve(response.data as TeamMember[]);
