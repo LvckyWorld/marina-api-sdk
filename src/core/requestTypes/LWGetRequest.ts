@@ -22,21 +22,12 @@ export class LWGetRequest extends LvckyWorldRequest {
      * @returns {Promise<GlobalBans>} A promise that resolves to the response data containing global bans.
      */
     public async getGlobalBans(): Promise<GlobalBans> {
-        console.log("getGlobalBans")
         return new Promise(async (resolve, reject) => {
-            console.log("getGlobalBans Promise")
             try {
-                console.log("getGlobalBans Promise Try")
-                console.log("GET " + this.apiUrl + '/globalbans')
-
                 const response = await this.sendGetRequest(this.apiUrl, '/globalbans');
-                console.log("RESPONSE")
-                console.log(response)
                 if (!response.success) return reject(response.error);
                 return resolve(response.data as GlobalBans);
             } catch (error) {
-                console.log("ERROR: getGlobalBans")
-                console.log(error)
                 return reject(error);
             }
         });

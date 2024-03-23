@@ -78,5 +78,4 @@ export class LvckyWorldRequest {
             return response.data;
         });
     }
-
 }

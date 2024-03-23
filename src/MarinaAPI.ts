@@ -40,9 +40,7 @@ export class MarinaAPI extends Request {
      * @returns {Promise<GlobalBans>} A promise that resolves with the global ban list.
      */
     public getGlobalBanList(): Promise<GlobalBans> {
-        console.log("getGlobalBanList")
         return new Promise(async (resolve) => {
-            console.log("getGlobalBanList Promise")
             return resolve(await this.get().getGlobalBans());
         })
     }
