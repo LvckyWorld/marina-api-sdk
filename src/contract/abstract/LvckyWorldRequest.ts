@@ -70,4 +70,5 @@ export class LvckyWorldRequest {
     ): Promise<SuccessResponseBody | ErrorResponseBody> {
         return axios.delete((baseUrl) + apiEndpoint, {params: params, headers: {Authorization: "Bearer " + apiToken}});
     }
+
 }
