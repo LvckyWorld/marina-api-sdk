@@ -1,0 +1,11 @@
+{
+  "assignees": ["iven.s"],     
+  "baseBranches": ["master"],
+  "gitlabci-include": {
+      "enabled": false
+  },
+  "groupName": "bump all dependencies",
+  "commitMessagePrefix": "[TASK]",
+  "addLabels": ["priority - p1", "type - security"]
+}
+
