@@ -18,6 +18,7 @@ npm install:
     - npm run compodoc
   only:
     - merge_requests
+    - master
     - /^(deploy-[a-z]{3,}-)\d{8}.\d{4}$/
   cache:
     paths:
